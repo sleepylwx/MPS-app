@@ -1,12 +1,8 @@
 package com.lwx.user.presenter;
 
 import com.lwx.user.BuildConfig;
-import com.lwx.user.ui.activity.HistoryImageActivity;
-import com.lwx.user.ui.activity.ImageDetailActivity;
-import com.lwx.user.ui.activity.LoginActivity;
 import com.lwx.user.ui.activity.MainActivity;
 
-import org.apache.tools.ant.Main;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;

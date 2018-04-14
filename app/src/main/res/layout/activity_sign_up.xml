@@ -38,6 +38,16 @@
         </android.support.v7.widget.Toolbar>
 
     </android.support.design.widget.AppBarLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+
 
     <TextView
         android:layout_width="wrap_content"
@@ -105,7 +115,7 @@
         android:paddingTop="10dp"
         android:paddingBottom="10dp"
 
-        android:inputType="textPassword"
+        android:inputType=""
         android:maxLength="20"
         android:ellipsize="end"
         android:paddingLeft="4dp"
@@ -141,7 +151,7 @@
 
         android:textColor="#000000"
         android:textStyle="bold"
-        android:inputType="textPassword"
+        android:inputType=""
         android:maxLength="20"
         android:ellipsize="end"
         android:paddingLeft="4dp"
@@ -178,7 +188,7 @@
 
             android:textColor="#000000"
             android:textStyle="bold"
-            android:inputType="textPassword"
+            android:inputType=""
             android:maxLength="20"
             android:ellipsize="end"
             android:paddingLeft="4dp"
@@ -213,7 +223,7 @@
 
             android:textColor="#000000"
             android:textStyle="bold"
-            android:inputType="textPassword"
+            android:inputType=""
             android:maxLength="20"
             android:ellipsize="end"
             android:paddingLeft="4dp"
@@ -250,7 +260,7 @@
 
             android:textColor="#000000"
             android:textStyle="bold"
-            android:inputType="textPassword"
+            android:inputType=""
             android:maxLength="20"
             android:ellipsize="end"
             android:paddingLeft="4dp"
@@ -285,7 +295,7 @@
 
             android:textColor="#000000"
             android:textStyle="bold"
-            android:inputType="textPassword"
+            android:inputType=""
             android:maxLength="20"
             android:ellipsize="end"
             android:paddingLeft="4dp"
@@ -320,7 +330,7 @@
 
             android:textColor="#000000"
             android:textStyle="bold"
-            android:inputType="textPassword"
+            android:inputType=""
             android:maxLength="20"
             android:ellipsize="end"
             android:paddingLeft="4dp"
@@ -355,7 +365,7 @@
 
             android:textColor="#000000"
             android:textStyle="bold"
-            android:inputType="textPassword"
+            android:inputType=""
             android:maxLength="20"
             android:ellipsize="end"
             android:paddingLeft="4dp"
@@ -389,7 +399,7 @@
 
             android:textColor="#000000"
             android:textStyle="bold"
-            android:inputType="textPassword"
+            android:inputType=""
             android:maxLength="20"
             android:ellipsize="end"
             android:paddingLeft="4dp"
@@ -424,7 +434,7 @@
 
             android:textColor="#000000"
             android:textStyle="bold"
-            android:inputType="textPassword"
+            android:inputType=""
             android:maxLength="20"
             android:ellipsize="end"
             android:paddingLeft="4dp"
@@ -457,7 +467,7 @@
 
             android:textColor="#000000"
             android:textStyle="bold"
-            android:inputType="textPassword"
+
             android:maxLength="20"
             android:ellipsize="end"
             android:paddingLeft="4dp"
@@ -477,5 +487,7 @@
         android:background="@drawable/feedback_button"/>
 
 
+    </LinearLayout>
+    </ScrollView>
     </LinearLayout>
 </LinearLayout>

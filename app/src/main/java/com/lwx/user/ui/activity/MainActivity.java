@@ -76,11 +76,12 @@ public class MainActivity extends AppCompatActivity {
 
 
     @BindView(R.id.floatingactionbutton)
-    private FloatingActionButton floatingActionButton;
+    FloatingActionButton floatingActionButton;
     @OnClick(R.id.floatingactionbutton)
     public void onClick(){
 
-
+        Intent intent = new Intent(this,SignUpActivity.class);
+        startActivity(intent);
     }
     public static final String MATCH_NUM = "1";
     public static final int RESULTCODE = 2;
@@ -139,60 +140,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void initNavigationView() {
 
-        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@android.support.annotation.NonNull MenuItem item) {
 
-                int id = item.getItemId();
-
-                if(id == R.id.nav_dailytask){
-
-                    Intent intent = new Intent(MainActivity.this,DailyTaskActivity.class);
-                    startActivity(intent);
-                }
-                else if(id == R.id.nav_history){
-
-                    Intent intent = new Intent(MainActivity.this,HistoryStatisticsActivity.class);
-                    startActivity(intent);
-                }
-                else if (id == R.id.nav_label) {
-
-
-                    Intent intent = new Intent(MainActivity.this, HistoryLabelActivity.class);
-                    //intent.putExtra(HistoryLabelActivity.USERID,App.getInstance().getUid());
-                    startActivity(intent);
-
-                } else if (id == R.id.nav_image) {
-
-                    Intent intent = new Intent(MainActivity.this, HistoryImageActivity.class);
-                    //intent.putExtra(HistoryImageActivity.USERID,App.getInstance().getUid());
-                    startActivity(intent);
-                }
-
-                else if(id == R.id.nav_feedback){
-
-                    Intent intent = new Intent(MainActivity.this,FeedBackActivity.class);
-                    startActivity(intent);
-
-                }
-                else if (id == R.id.nav_exit) {
-
-                    Intent intent = new Intent(MainActivity.this, LoginActivity.class);
-                    intent.putExtra(LoginActivity.MATCH_NUM, App.getInstance().getUid());
-
-                    Log.d(TAG, "exit login" + " " + App.getInstance().getUid());
-
-                    new PreferenceHelper().deleteLogInUID();
-                    startActivity(intent);
-                    finish();
-                }
-
-
-                drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-                drawerLayout.closeDrawer(GravityCompat.START);
-                return true;
-            }
-        });
     }
 
     private void init() {

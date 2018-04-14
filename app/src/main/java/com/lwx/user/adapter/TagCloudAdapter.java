@@ -9,7 +9,6 @@ import android.widget.TextView;
 
 import com.lwx.user.R;
 import com.lwx.user.contracts.HistoryLabelContract;
-import com.lwx.user.ui.activity.HistoryLabelActivity;
 import com.moxun.tagcloudlib.view.TagsAdapter;
 
 import java.util.List;

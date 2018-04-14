@@ -72,8 +72,8 @@ public class SignUpActivity extends AppCompatActivity{
             return;
         }
 
-
-
+        Intent intent = new Intent(this,MPSAcitvity.class);
+        startActivity(intent);
     }
 
     private SignUpContract.Presenter presenter;

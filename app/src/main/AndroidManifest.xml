@@ -6,8 +6,6 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 
-
-
     <application
         android:name=".App"
         android:allowBackup="true"
@@ -16,44 +14,15 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
         <activity
-            android:name=".ui.activity.SplashActivity"
-            android:theme="@style/AppTheme.NoActionBar.Splash">
-
-        </activity>
-        <activity
             android:name=".ui.activity.MainActivity"
             android:launchMode="singleTask">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
-
         </activity>
-        <activity
-            android:name=".ui.activity.LoginActivity"
-            android:launchMode="singleTask"/>
         <activity android:name=".ui.activity.SignUpActivity"/>
-        <activity android:name=".ui.activity.FindPasswdActivity">
-        </activity>
-        <activity
-            android:name=".ui.activity.ImageDetailActivity"
-            android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen">
-        </activity>
-        <activity
-            android:name=".ui.activity.BomDialog"
-            android:label="@string/add_label_dialog_title"
-            android:theme="@style/AppDialogTheme">
-        </activity>
-        <activity android:name=".ui.activity.UserDetailActivity">
-        </activity>
-        <activity android:name=".ui.activity.SettingActivity">
-        </activity>
-        <activity android:name=".ui.activity.HistoryLabelActivity">
-        </activity>
-        <activity android:name=".ui.activity.HistoryImageActivity">
-        </activity>
         <activity
             android:name="cn.finalteam.rxgalleryfinal.ui.activity.MediaActivity"
             android:exported="true"
@@ -63,11 +32,7 @@
             android:name="com.yalantis.ucrop.UCropActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar"/>
-        <activity android:name=".ui.activity.FeedBackActivity">
-        </activity>
-        <activity android:name=".ui.activity.DailyTaskActivity">
-        </activity>
-        <activity android:name=".ui.activity.HistoryStatisticsActivity">
+        <activity android:name=".ui.activity.MPSAcitvity">
         </activity>
     </application>
 
