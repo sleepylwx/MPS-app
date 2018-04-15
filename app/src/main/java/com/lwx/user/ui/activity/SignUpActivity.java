@@ -13,6 +13,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.kelin.scrollablepanel.library.ScrollablePanel;
 import com.lwx.user.R;
 import com.lwx.user.contracts.SignUpContract;
 import com.lwx.user.presenter.SignUpPresenter;
@@ -46,6 +47,8 @@ public class SignUpActivity extends AppCompatActivity{
 
     @BindView(R.id.submit) Button submit;
 
+
+
     @OnClick(R.id.submit)
     public void onClick(){
 
@@ -69,10 +72,22 @@ public class SignUpActivity extends AppCompatActivity{
                 || twelveS.isEmpty()){
 
             Toast.makeText(this,"存在空字段！",Toast.LENGTH_SHORT).show();
-            return;
+            //return;
         }
 
         Intent intent = new Intent(this,MPSAcitvity.class);
+        intent.putExtra("first",oneS);
+        intent.putExtra("second",twoS);
+        intent.putExtra("third",threeS);
+        intent.putExtra("fourth",fourS);
+        intent.putExtra("fifth",fiveS);
+        intent.putExtra("sixth",sixS);
+        intent.putExtra("seventh",sevenS);
+        intent.putExtra("eighth",eightS);
+        intent.putExtra("nineth",nineS);
+        intent.putExtra("tenth",tenS);
+        intent.putExtra("eleventh",elevenS);
+        intent.putExtra("twelveh",twelveS);
         startActivity(intent);
     }
 

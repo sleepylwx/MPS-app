@@ -68,5 +68,5 @@ dependencies {
     compile 'com.kelin.scrollablepanel:library:1.2.0'
     compile 'id.zelory:compressor:2.1.0'
 
-    compile 'com.github.huangyanbin:SmartTable:1.7.1'
+    compile 'com.github.huangyanbin:SmartTable:2.2.0'
 }
