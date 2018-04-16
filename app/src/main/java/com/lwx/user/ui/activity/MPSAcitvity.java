@@ -1,13 +1,24 @@
 package com.lwx.user.ui.activity;
 
+import android.app.Application;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.Adapter;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.kelin.scrollablepanel.library.ScrollablePanel;
 import com.lwx.user.R;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -18,6 +29,7 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class MPSAcitvity extends AppCompatActivity {
 
@@ -65,6 +77,132 @@ public class MPSAcitvity extends AppCompatActivity {
     @BindView(R.id.scrollable_panel)
     ScrollablePanel panel;
 
+    @BindView(R.id.buttona)
+    Button button;
+
+    @OnClick(R.id.buttona)
+    public void onClick(){
+
+
+        if("确定".equals(button.getText())){
+
+
+            List<String> list1 = new ArrayList<>();
+            List<List<String>>  list = adapter.getData();
+            for(int j = 2; j <4; ++j){
+
+                for(int i = 0; i < Integer.parseInt(twelveh); ++i){
+
+                    list1.add(list.get(j).get(i+2));
+                }
+            }
+            list1.add(list.get(5).get(2));
+            generatePara(list1);
+
+        }
+
+
+        List<String> mpsList;
+
+
+        try{
+
+
+            ObjectInputStream ois = new ObjectInputStream(new FileInputStream(new File(this.getFilesDir(),"mpslist")));
+
+            mpsList = (List<String>)ois.readObject();
+            if(mpsList == null){
+                mpsList = new ArrayList<>();
+            }
+            int flag = 0;
+            for(int i = 0; i < mpsList.size() ;++i){
+
+                if(mpsList.get(i).equals(first)){
+
+                    flag = 1;
+                }
+            }
+            if(flag == 0){
+
+                mpsList.add(first);
+            }
+
+            ois.close();;
+            ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(new File(this.getFilesDir(),"mpslist")));
+            oos.writeObject(mpsList);
+            oos.flush();
+            oos.close();
+
+            ObjectOutputStream oos1 = new ObjectOutputStream(new FileOutputStream(new File(this.getFilesDir(),first)));
+            oos1.writeObject(adapter.getData());
+            oos1.flush();
+            oos1.close();
+            ObjectOutputStream oos2 = new ObjectOutputStream(new FileOutputStream(new File(this.getFilesDir(),first+"#")));
+            List<String> list = new ArrayList<>();
+            list.add(first);
+            list.add(second);
+            list.add(third);
+            list.add(fourth);
+            list.add(fifth);
+            list.add(sixth);
+            list.add(seventh);
+            list.add(eighth);
+            list.add(nineth);
+            list.add(tenth);
+            list.add(eleventh);
+            list.add(twelveh);
+            list.add(thirteenth);
+            oos2.writeObject(list);
+            oos2.flush();
+            oos2.close();
+
+        }
+        catch (Exception e){
+
+            try{
+
+                mpsList = new ArrayList<>();
+                mpsList.add(first);
+
+                ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(new File(this.getFilesDir(),"mpslist")));
+                oos.writeObject(mpsList);
+                oos.flush();
+                oos.close();
+
+                ObjectOutputStream oos1 = new ObjectOutputStream(new FileOutputStream(new File(this.getFilesDir(),first
+                )));
+                oos1.writeObject(adapter.getData());
+                oos1.flush();
+                oos1.close();
+                ObjectOutputStream oos2 = new ObjectOutputStream(new FileOutputStream(new File(this.getFilesDir(),first+"#")));
+                List<String> list = new ArrayList<>();
+                list.add(first);
+                list.add(second);
+                list.add(third);
+                list.add(fourth);
+                list.add(fifth);
+                list.add(sixth);
+                list.add(seventh);
+                list.add(eighth);
+                list.add(nineth);
+                list.add(tenth);
+                list.add(eleventh);
+                list.add(twelveh);
+                list.add(thirteenth);
+                oos2.writeObject(list);
+                oos2.flush();
+                oos2.close();
+            }
+
+            catch (Exception e1){
+
+
+            }
+
+        }
+
+
+    }
     String first;
     String second;
     String third;
@@ -77,6 +215,7 @@ public class MPSAcitvity extends AppCompatActivity {
     String tenth;
     String eleventh;
     String twelveh;
+    String thirteenth;
     AAdapter adapter;
     @Override
     protected void onCreate(Bundle savedInstanceState)  {
@@ -85,7 +224,59 @@ public class MPSAcitvity extends AppCompatActivity {
         ButterKnife.bind(this);
 
 
+
         Intent intent = getIntent();
+        String flag = intent.getStringExtra("flag");
+        if(flag != null){
+
+            try{
+
+                ObjectInputStream oos1 = new ObjectInputStream(new FileInputStream(new File(this.getFilesDir(),flag)));
+                ObjectInputStream oos2 = new ObjectInputStream(new FileInputStream(new File(this.getFilesDir(),flag+"#")));
+
+                List<List<String>>tempList = (List<List<String>>)oos1.readObject();
+                List<String> tempList1 = (List<String>)oos2.readObject();
+                first = tempList1.get(0);
+                second = tempList1.get(1);
+                third = tempList1.get(2);
+                fourth = tempList1.get(3);
+                fifth = tempList1.get(4);
+                sixth  = tempList1.get(5);
+
+                seventh = tempList1.get(6);
+                eighth = tempList1.get(7);
+                nineth = tempList1.get(8);
+                tenth = tempList1.get(9);
+                eleventh = tempList1.get(10);
+                twelveh = tempList1.get(11);
+                thirteenth = tempList1.get(12);
+
+                adapter = new AAdapter(tempList,this);
+                panel.setPanelAdapter(adapter);
+                panel.notifyDataSetChanged();
+
+            }
+            catch (Exception e){
+
+
+            }
+            tv1.setText(first);
+            tv2.setText(eighth);
+            Calendar calender = Calendar.getInstance();
+            tv3.setText(calender.get(Calendar.YEAR) + "/" + calender.get(Calendar.MONTH)+"/" + calender.get(Calendar.DAY_OF_MONTH));
+            tv4.setText(thirteenth);
+            tv5.setText(fourth);
+            tv6.setText(tenth);
+            tv7.setText(nineth);
+            tv8.setText(sixth);
+            tv9.setText(second);
+            tv10.setText(fifth);
+            tv11.setText(seventh);
+            tv12.setText(third);
+
+            return;
+        }
+        //List<List<String>> list =
         first = intent.getStringExtra("first");
         second = intent.getStringExtra("second");
         third = intent.getStringExtra("third");
@@ -98,12 +289,13 @@ public class MPSAcitvity extends AppCompatActivity {
         tenth = intent.getStringExtra("tenth");
         eleventh = intent.getStringExtra("eleventh");
         twelveh = intent.getStringExtra("twelveh");
+        thirteenth = intent.getStringExtra("thirteen");
 
         tv1.setText(first);
         tv2.setText(eighth);
         Calendar calender = Calendar.getInstance();
-        tv3.setText(calender.get(Calendar.YEAR) + "/" + calender.get(Calendar.MONTH)+"/" + calender.get(Calendar.DAY_OF_MONTH));
-        tv4.setText("X");
+        tv3.setText(calender.get(Calendar.YEAR) + "/" + (calender.get(Calendar.MONTH)+1)+"/" + calender.get(Calendar.DAY_OF_MONTH));
+        tv4.setText(thirteenth);
         tv5.setText(fourth);
         tv6.setText(tenth);
         tv7.setText(nineth);
@@ -140,6 +332,15 @@ public class MPSAcitvity extends AppCompatActivity {
 
     }
 
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+
+
+
+    }
+
     public void generatePara(List<String> para){
 
         List<String> para2 = new ArrayList<>();
@@ -155,6 +356,7 @@ public class MPSAcitvity extends AppCompatActivity {
         para2.add(eleventh);
 
         adapter.setData(getTable(para2,para));
+
         panel.setPanelAdapter(adapter);
         panel.notifyDataSetChanged();
     }
@@ -167,7 +369,7 @@ public class MPSAcitvity extends AppCompatActivity {
         int batchIn = Integer.parseInt(para1.get(5));	//批量增量
         int deFence = Integer.parseInt(para1.get(6));	//需求时界
         int plFence = Integer.parseInt(para1.get(7));	//计划时界
-        double Rate = Integer.parseInt(para1.get(8));	//成品率
+        double Rate = Double.parseDouble(para1.get(8));	//成品率
         String startDate=para1.get(9);					//开始日期
 
         List<List<String>> data = new ArrayList<>();
@@ -344,4 +546,6 @@ public class MPSAcitvity extends AppCompatActivity {
         }
         return data;
     }
+
+
 }

@@ -14,7 +14,9 @@ import com.lwx.user.R;
 
 import org.w3c.dom.Text;
 
+import java.io.File;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class AAdapter extends PanelAdapter {
@@ -25,6 +27,7 @@ public class AAdapter extends PanelAdapter {
     public AAdapter(List<List<String>> list,MPSAcitvity acitvity) {
 
         this.list = list;
+
         this.acitvity = acitvity;
     }
 
@@ -52,17 +55,20 @@ public class AAdapter extends PanelAdapter {
         ((View)holder).row = row;
         ((View)holder).column = column;
 
+        //((View)holder).value = str;
+
 
         if((row == 2 || row == 3 )&& (column != 0 && column != 1) || row == 5 && column == 2){
 
             ((View)holder).textView.setVisibility(android.view.View.GONE);
             ((View)holder).editText.setVisibility(android.view.View.VISIBLE);
-            ((View)holder).value = str;
-            if(!str.isEmpty()){
+            //((View)holder).value[(row-2)*(getColumnCount()-2) + column] = str;
+//            if(!str.isEmpty() && ((View)holder).editText.getText().toString().isEmpty()){
+//
+//
+//            }
 
-                ((View)holder).editText.setText(str);
-            }
-
+            ((View)holder).editText.setText(str);
 
         }
         else{
@@ -96,50 +102,74 @@ public class AAdapter extends PanelAdapter {
             super(itemView);
             textView = (TextView)itemView.findViewById(R.id.textV);
             editText = (EditText)itemView.findViewById(R.id.editV);
-
             editText.addTextChangedListener(new TextWatcher() {
                 @Override
                 public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
 
                 }
 
                 @Override
                 public void onTextChanged(CharSequence s, int start, int before, int count) {
 
-
                 }
 
                 @Override
                 public void afterTextChanged(Editable s) {
 
-
                     String str = s.toString();
-                    if(value.equals(str)){
-
-                        return;
-                    }
                     list.get(row).set(column,str);
-                    List<String> para = new ArrayList<>();
-
-                    for(int j = 2; j < 4; ++j){
-
-                        for(int i = 2; i < getColumnCount(); ++i){
-
-
-                            para.add(list.get(j).get(i));
-
-                        }
-
-
-
-                    }
-
-
-                    para.add(list.get(5).get(2));
-                    acitvity.generatePara(para);
                 }
             });
+            //value = new String[(getColumnCount()-2)*6+1];
+
+//            editText.addTextChangedListener(new TextWatcher() {
+//                @Override
+//                public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+//
+//
+//                }
+//
+//                @Override
+//                public void onTextChanged(CharSequence s, int start, int before, int count) {
+//
+//
+//                }
+//
+//                @Override
+//                public void afterTextChanged(Editable s) {
+//
+//
+//                    String str = s.toString();
+//                    if(value == null){
+//
+//                        value = str;
+//                    }
+//                    else if(value.equals(str)){
+//
+//                        return;
+//                    }
+//
+//                    value = str;
+//                    list.get(row).set(column,str);
+//                    List<String> para = new ArrayList<>();
+//
+//                    for(int j = 2; j < 4; ++j){
+//
+//                        for(int i = 2; i < getColumnCount(); ++i){
+//
+//
+//                            para.add(list.get(j).get(i));
+//
+//                        }
+//
+//
+//                    }
+//
+//
+//                    para.add(list.get(5).get(2));
+//                    acitvity.generatePara(para);
+//                }
+//            });
         }
     }
 
@@ -147,5 +177,12 @@ public class AAdapter extends PanelAdapter {
 
         this.list = list;
     }
+
+    public List<List<String>> getData(){
+
+        return this.list;
+    }
+
+
 
 }

@@ -45,6 +45,8 @@ public class SignUpActivity extends AppCompatActivity{
 
     @BindView(R.id.twelve) EditText twelve;
 
+    @BindView(R.id.thirteen)EditText thirteen;
+
     @BindView(R.id.submit) Button submit;
 
 
@@ -64,15 +66,36 @@ public class SignUpActivity extends AppCompatActivity{
         String tenS = ten.getText().toString();
         String elevenS = eleven.getText().toString();
         String twelveS = twelve.getText().toString();
+        String thirteenS = thirteen.getText().toString();
 
         if(oneS.isEmpty() || twoS.isEmpty() || threeS.isEmpty()
                 || fourS.isEmpty() || fiveS.isEmpty() || sixS.isEmpty()
                 || sevenS.isEmpty() || eightS.isEmpty() ||
                 nineS.isEmpty() || tenS.isEmpty() || elevenS.isEmpty()
-                || twelveS.isEmpty()){
+                || twelveS.isEmpty() || thirteenS.isEmpty()){
 
             Toast.makeText(this,"存在空字段！",Toast.LENGTH_SHORT).show();
-            //return;
+            return;
+        }
+
+        if(elevenS.length() != 8){
+
+            Toast.makeText(this,"日期格式有误！",Toast.LENGTH_SHORT).show();
+            return;
+        }
+        try{
+
+            double temp = Double.parseDouble(eightS);
+            if(temp > 1){
+
+                Toast.makeText(this,"成品率须为不大于1的数!",Toast.LENGTH_SHORT).show();
+                return;
+            }
+        }
+        catch (Exception e){
+
+            Toast.makeText(this,"成品率须为不大于1的数!",Toast.LENGTH_SHORT).show();
+            return;
         }
 
         Intent intent = new Intent(this,MPSAcitvity.class);
@@ -88,7 +111,9 @@ public class SignUpActivity extends AppCompatActivity{
         intent.putExtra("tenth",tenS);
         intent.putExtra("eleventh",elevenS);
         intent.putExtra("twelveh",twelveS);
+        intent.putExtra("thirteen",thirteenS);
         startActivity(intent);
+        finish();
     }
 
     private SignUpContract.Presenter presenter;

@@ -9,10 +9,14 @@
         android:id="@+id/textV"
         android:layout_width="80dp"
         android:layout_height="50dp"
-        android:gravity="center"/>
+        android:gravity="center"
+        android:textColor="#383838"
+        android:textSize="15sp"
+        />
     <EditText
         android:id="@+id/editV"
         android:layout_width="80dp"
         android:layout_height="50dp"
-        android:visibility="gone"/>
+        android:visibility="gone"
+        android:digits="0123456789"/>
 </LinearLayout>

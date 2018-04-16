@@ -61,14 +61,7 @@
 
 
 
-        <!--<EditText-->
-            <!--android:id="@+id/user"-->
-            <!--android:layout_width="0dp"-->
-            <!--android:layout_weight="4"-->
-            <!--android:layout_height="match_parent"-->
-            <!--android:hint="登录邮箱"-->
-            <!--android:maxLength="20"-->
-            <!--/>-->
+
 
         <EditText
             android:layout_marginTop="3dp"
@@ -85,13 +78,42 @@
             android:paddingLeft="4dp"
             android:paddingRight="4dp"
             android:textColorHint="#ffeeff"
-
+            android:digits="0123456789"
             android:layout_marginLeft="6dp"
             android:layout_marginRight="6dp"/>
 
 
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#000000"
+                android:textStyle="bold"
+                android:text="物料名称"
+                android:layout_marginTop="30dp"
+                android:layout_marginLeft="6dp"
+                />
 
+
+
+            <EditText
+                android:layout_marginTop="3dp"
+                android:id="@+id/thirteen"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="10000"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:textColor="#000000"
+                android:inputType="text"
+                android:maxLength="20"
+                android:ellipsize="end"
+                android:paddingLeft="4dp"
+                android:paddingRight="4dp"
+                android:textColorHint="#ffeeff"
+
+                android:layout_marginLeft="6dp"
+                android:layout_marginRight="6dp"/>
 
 
     <TextView
@@ -114,7 +136,7 @@
         android:text="3"
         android:paddingTop="10dp"
         android:paddingBottom="10dp"
-
+        android:digits="0123456789"
         android:inputType=""
         android:maxLength="20"
         android:ellipsize="end"
@@ -148,7 +170,7 @@
         android:text="8"
         android:paddingTop="10dp"
         android:paddingBottom="10dp"
-
+        android:digits="0123456789"
         android:textColor="#000000"
         android:textStyle="bold"
         android:inputType=""
@@ -185,7 +207,7 @@
             android:text="5"
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
-
+            android:digits="0123456789"
             android:textColor="#000000"
             android:textStyle="bold"
             android:inputType=""
@@ -220,7 +242,7 @@
             android:text="8"
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
-
+            android:digits="0123456789"
             android:textColor="#000000"
             android:textStyle="bold"
             android:inputType=""
@@ -257,7 +279,7 @@
             android:text="10"
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
-
+            android:digits="0123456789"
             android:textColor="#000000"
             android:textStyle="bold"
             android:inputType=""
@@ -292,7 +314,7 @@
             android:text="10"
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
-
+            android:digits="0123456789"
             android:textColor="#000000"
             android:textStyle="bold"
             android:inputType=""
@@ -347,7 +369,7 @@
             android:textColor="#000000"
             android:text="提前期(天)"
             android:textStyle="bold"
-
+            android:digits="0123456789"
             android:layout_marginTop="20dp"
             android:layout_marginLeft="6dp"
             />
@@ -371,7 +393,7 @@
             android:paddingLeft="4dp"
             android:paddingRight="4dp"
             android:textColorHint="#808080"
-
+            android:digits="0123456789"
             android:layout_marginLeft="6dp"
             android:layout_marginRight="6dp"/>
 
@@ -414,7 +436,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="#000000"
-            android:text="开始时间(yymmdd)"
+            android:text="开始时间(yyyymmdd)"
             android:textStyle="bold"
             android:layout_marginTop="20dp"
             android:layout_marginLeft="6dp"
@@ -431,7 +453,7 @@
             android:text="20180302"
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
-
+            android:digits="0123456789"
             android:textColor="#000000"
             android:textStyle="bold"
             android:inputType=""
@@ -467,7 +489,7 @@
             android:text="11"
             android:textColor="#000000"
             android:textStyle="bold"
-
+            android:digits="0123456789"
             android:maxLength="20"
             android:ellipsize="end"
             android:paddingLeft="4dp"

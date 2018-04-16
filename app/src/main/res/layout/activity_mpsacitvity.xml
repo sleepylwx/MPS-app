@@ -9,6 +9,50 @@
     android:orientation="vertical">
 
 
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        app:popupTheme="@style/AppTheme.PopupOverlay"
+        app:layout_scrollFlags="scroll|enterAlways|snap"
+        >
+
+        <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+
+
+            <TextView
+                android:id="@+id/toolbar_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+
+                android:textSize="25sp"
+                android:layout_centerVertical="true"
+                android:textColor="#ffffff"
+                android:text="报表"
+                />
+
+            <Button
+                android:id="@+id/buttona"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:text="确定"
+                android:textColor="#ffffff"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="5dp"
+                android:background="#00000000"
+                />
+
+    </RelativeLayout>
+
+    </android.support.v7.widget.Toolbar>
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="100dp">
@@ -29,7 +73,7 @@
                             android:id="@+id/t1v"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="物料号"/>
+                            android:text="物料号:"/>
 
                         <TextView
                             android:id="@+id/tv1"
@@ -42,7 +86,7 @@
                             android:id="@+id/t2v"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="成品率"
+                            android:text="  成品率:"
                             android:layout_toRightOf="@id/tv1"
                             android:layout_marginLeft="3dp"
                             />
@@ -56,7 +100,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="计划日期"
+                            android:text="  计划日期:"
                             />
                         <TextView
                             android:id="@+id/tv3"
@@ -78,7 +122,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="物料名称"/>
+                    android:text="物料名称:"/>
 
                 <TextView
                     android:id="@+id/tv4"
@@ -88,7 +132,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="安全库存量"/>
+                    android:text="  安全库存量:"/>
                 <TextView
                     android:id="@+id/tv5"
                     android:layout_width="wrap_content"
@@ -97,7 +141,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="计划员"/>
+                    android:text="  计划员:"/>
                 <TextView
                     android:id="@+id/tv6"
                     android:layout_width="wrap_content"
@@ -117,7 +161,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="提前期"/>
+                    android:text="提前期:"/>
 
                 <TextView
                     android:id="@+id/tv7"
@@ -127,7 +171,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="批量"/>
+                    android:text="  批量:"/>
                 <TextView
                     android:id="@+id/tv8"
                     android:layout_width="wrap_content"
@@ -136,7 +180,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="需求时界"/>
+                    android:text="  需求时界:"/>
                 <TextView
                     android:id="@+id/tv9"
                     android:layout_width="wrap_content"
@@ -155,7 +199,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="现有库存量"/>
+                    android:text="现有库存量:"/>
 
                 <TextView
                     android:id="@+id/tv10"
@@ -165,7 +209,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="批量增量"/>
+                    android:text="  批量增量:"/>
                 <TextView
                     android:id="@+id/tv11"
                     android:layout_width="wrap_content"
@@ -174,7 +218,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="计划时界"/>
+                    android:text="  计划时界:"/>
                 <TextView
                     android:id="@+id/tv12"
                     android:layout_width="wrap_content"

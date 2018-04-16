@@ -1,6 +1,7 @@
 package com.lwx.user.ui.activity;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
@@ -13,6 +14,7 @@ import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
@@ -21,12 +23,14 @@ import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
+import android.view.ContextMenu;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -48,6 +52,9 @@ import com.lwx.user.presenter.MainPresenter;
 import com.lwx.user.utils.ImageLoader;
 import com.lwx.user.utils.PreferenceHelper;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.ObjectInputStream;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -66,13 +73,11 @@ public class MainActivity extends AppCompatActivity {
 
     @BindView(R.id.toolbar)
     Toolbar toolbar;
-    @BindView(R.id.nav_view)
-    NavigationView navigationView;
+
 
     @BindView(R.id.recyclerview)
     RecyclerView recyclerView;
-    @BindView(R.id.drawer_layout)
-    DrawerLayout drawerLayout;
+
 
 
     @BindView(R.id.floatingactionbutton)
@@ -88,7 +93,8 @@ public class MainActivity extends AppCompatActivity {
 
 
     private RecyclerViewAdapter adapter;
-    private List<Image> list;
+    private List<String> list;
+
 
 
 
@@ -103,17 +109,24 @@ public class MainActivity extends AppCompatActivity {
         list = new ArrayList<>();
 
 
-        //headerImageView =strenthenToolBar.getHeaderView();
 
-        //
 
 
         //
         init();
 
 
+
     }
 
+
+
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        initRecycleView();
+    }
 
     @Override
     protected void onDestroy() {
@@ -122,26 +135,13 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    @Override
-    public void onBackPressed() {
-
-        if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
-            drawerLayout.closeDrawer(GravityCompat.START);
-        }
-        else{
-
-            moveTaskToBack(false);
-        }
-    }
 
 
 
 
 
-    private void initNavigationView() {
 
 
-    }
 
     private void init() {
 
@@ -149,11 +149,8 @@ public class MainActivity extends AppCompatActivity {
 
 
         initToolBar();
-        initNavigationView();
 
         initRecycleView();
-
-
 
 
 
@@ -163,7 +160,7 @@ public class MainActivity extends AppCompatActivity {
     private void initToolBar(){
 
 
-        toolbar.setTitle("");
+        toolbar.setTitle("主界面");
         setSupportActionBar(toolbar);
 
         //ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -203,8 +200,23 @@ public class MainActivity extends AppCompatActivity {
 //
 //            list.addAll(imageList);
 //        }
-        Log.d(TAG, "" + list.size());
-        adapter = new RecyclerViewAdapter(this, this.list);
+        List<String> mpsList = new ArrayList<>();
+        try{
+
+
+            ObjectInputStream ois = new ObjectInputStream(new FileInputStream(new File(this.getFilesDir(),"mpslist")));
+
+            mpsList = (List<String>)ois.readObject();
+
+
+            ois.close();;
+
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+
+        adapter = new RecyclerViewAdapter(this, mpsList);
         LinearLayoutManager linearLayoutManager  = new LinearLayoutManager(this);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(linearLayoutManager);
