@@ -15,8 +15,7 @@ import android.widget.Toast;
 
 import com.kelin.scrollablepanel.library.ScrollablePanel;
 import com.lwx.user.R;
-import com.lwx.user.contracts.SignUpContract;
-import com.lwx.user.presenter.SignUpPresenter;
+
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -116,7 +115,7 @@ public class SignUpActivity extends AppCompatActivity{
         finish();
     }
 
-    private SignUpContract.Presenter presenter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -135,7 +134,7 @@ public class SignUpActivity extends AppCompatActivity{
     protected void onDestroy(){
 
         super.onDestroy();
-        presenter = null;
+
     }
 
     private void init(){

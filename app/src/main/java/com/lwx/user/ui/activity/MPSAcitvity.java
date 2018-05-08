@@ -473,7 +473,7 @@ public class MPSAcitvity extends AppCompatActivity {
         int preRec =0;
         if(!data.get(5).get(2).equals(""))
             preRec = Integer.parseInt(data.get(5).get(2));
-        int curStock = netReq+safeStock+preRec;
+        int curStock = netReq+safeStock+preRec;//
         data.get(6).add(""+curStock);
         data.get(7).add("");
         data.get(8).add("");
@@ -518,7 +518,11 @@ public class MPSAcitvity extends AppCompatActivity {
                 data.get(9).add("");
                 data.get(5).add("");
                 data.get(6).add(""+(netReq+safeStock));
-                if(i == timeNum+1){
+//                if(i == timeNum+1){
+//
+//                    data.get(9).add("");
+//                }
+                if(data.get(9).size() != timeNum){
 
                     data.get(9).add("");
                 }
@@ -543,6 +547,12 @@ public class MPSAcitvity extends AppCompatActivity {
                 }
             }
             data.get(10).add(""+(Integer.parseInt(data.get(8).get(i))-totalConCount));
+        }
+        for(int i=0;i<data.size();i++)
+        {
+            while(data.get(i).size() < timeNum+1){
+                data.get(i).add("");
+            }
         }
         return data;
     }

@@ -15,10 +15,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.lwx.user.R;
-import com.lwx.user.contracts.ToImageDetailContract;
-import com.lwx.user.model.model.Image;
+
 import com.lwx.user.ui.activity.MPSAcitvity;
-import com.lwx.user.utils.ImageLoader;
+
 
 import java.io.File;
 import java.io.FileInputStream;

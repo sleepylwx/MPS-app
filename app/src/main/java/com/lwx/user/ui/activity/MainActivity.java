@@ -44,13 +44,6 @@ import com.bumptech.glide.signature.StringSignature;
 import com.lwx.user.App;
 import com.lwx.user.R;
 import com.lwx.user.adapter.RecyclerViewAdapter;
-import com.lwx.user.contracts.MainContract;
-import com.lwx.user.model.model.Image;
-import com.lwx.user.model.model.ImageSearch;
-import com.lwx.user.model.model.User;
-import com.lwx.user.presenter.MainPresenter;
-import com.lwx.user.utils.ImageLoader;
-import com.lwx.user.utils.PreferenceHelper;
 
 import java.io.File;
 import java.io.FileInputStream;
